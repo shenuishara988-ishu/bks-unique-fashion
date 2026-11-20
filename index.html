@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101426">
+<title>BK's unique fashion | AI Creative Studio</title>
+<style>
+:root{--bg:#0b1020;--panel:#121a2e;--panel2:#19233b;--line:#293653;--text:#f5f7ff;--muted:#aab5cc;--accent:#9b8cff;--accent2:#55d6be;--shadow:0 18px 50px #0005}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% 0%,#282052 0,transparent 32%),var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}
+button,input{font:inherit}.wrap{width:min(1160px,92%);margin:auto}.topbar{display:flex;align-items:center;justify-content:space-between;padding:22px 0;border-bottom:1px solid #ffffff12;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:-.4px}.logo{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:grid;place-items:center;color:#101426;font-weight:900}
+.brand small{display:block;color:var(--muted);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;margin-top:2px}
+.actions{display:flex;gap:10px;align-items:center}.btn{border:1px solid var(--line);background:var(--panel2);color:var(--text);padding:10px 14px;border-radius:12px;cursor:pointer}.btn:hover,.category:hover{border-color:var(--accent)}.primary{background:linear-gradient(120deg,var(--accent),#6e9dff);color:#101426;border:0;font-weight:800}
+.hero{padding:66px 0 38px;text-align:center}.eyebrow{display:inline-flex;padding:7px 12px;border:1px solid #9b8cff55;border-radius:99px;color:#c8c0ff;background:#9b8cff12;font-size:12px;font-weight:700;letter-spacing:1px}
+h1{font-size:clamp(36px,6vw,64px);line-height:1.04;letter-spacing:-2.5px;margin:20px auto 14px;max-width:850px}.gradient{background:linear-gradient(100deg,#b9aaff,#6de3d0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--muted);max-width:650px;margin:0 auto 26px;line-height:1.7}.search{max-width:650px;margin:auto;position:relative}.search input{width:100%;padding:17px 18px 17px 48px;border-radius:16px;background:#151e33;border:1px solid var(--line);color:white;outline:none}.search input:focus{border-color:var(--accent);box-shadow:0 0 0 3px #9b8cff22}.search span{position:absolute;left:17px;top:14px;color:var(--muted);font-size:20px}
+.stats{display:flex;justify-content:center;gap:34px;margin-top:22px;color:var(--muted);font-size:13px}.stats b{color:white}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin:32px 0 16px}.section-head h2{margin:0;font-size:23px}.section-head p{margin:5px 0 0;color:var(--muted);font-size:13px}
+.categories{display:flex;gap:9px;overflow:auto;padding:3px 0 15px}.category{white-space:nowrap;border:1px solid var(--line);background:var(--panel);color:var(--muted);padding:10px 14px;border-radius:99px;cursor:pointer}.category.active{background:#9b8cff20;color:#d9d2ff;border-color:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding-bottom:60px}.card{background:linear-gradient(160deg,#17213a,#11182a);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:var(--shadow);display:flex;flex-direction:column;min-height:230px;transition:.2s}.card:hover{transform:translateY(-3px);border-color:#8174d8}.card-top{display:flex;justify-content:space-between;align-items:center}.ico{width:42px;height:42px;border-radius:13px;background:#9b8cff20;display:grid;place-items:center;font-size:21px}.tag{font-size:11px;color:#9de7d9;background:#55d6be15;padding:6px 9px;border-radius:99px}.card h3{margin:17px 0 7px;font-size:18px}.card p{color:var(--muted);font-size:13px;line-height:1.55;margin:0 0 18px}.card-foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:10px}.card-foot small{color:var(--muted)}.copy{padding:9px 12px;border:0;border-radius:10px;background:#9b8cff;color:#111426;font-weight:800;cursor:pointer}.copy:hover{filter:brightness(1.1)}
+.empty{grid-column:1/-1;text-align:center;padding:40px;color:var(--muted);border:1px dashed var(--line);border-radius:16px}
+footer{border-top:1px solid #ffffff12;padding:25px 0 35px;color:var(--muted);font-size:12px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.modal-backdrop{position:fixed;inset:0;background:#050814cc;display:none;place-items:center;padding:18px;z-index:5}.modal-backdrop.show{display:grid}.modal{width:min(650px,100%);background:#151e33;border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:var(--shadow);max-height:85vh;overflow:auto}.modal-head{display:flex;justify-content:space-between;align-items:center}.modal h2{margin:0}.prompt{white-space:pre-wrap;color:#dce4f7;line-height:1.7;background:#0c1324;border:1px solid var(--line);padding:17px;border-radius:13px;margin:18px 0}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:560px){.grid{grid-template-columns:1fr}.hero{padding-top:48px}.stats{gap:15px;flex-wrap:wrap}.brand{font-size:14px}.topbar{align-items:flex-start}.actions{gap:6px}.btn{padding:9px 10px;font-size:12px}footer{display:block}h1{letter-spacing:-1.5px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="topbar">
+  <div class="brand"><div class="logo">BK</div><div>BK's unique fashion<small>AI CREATIVE STUDIO</small></div></div>
+  <div class="actions"><button class="btn" id="langBtn" aria-label="Change language">සිංහල</button><a class="btn" href="#tools" style="text-decoration:none">Explore tools ↗</a></div>
+</header>
+<main>
+<section class="hero">
+  <div class="eyebrow" id="eyebrow">✦ YOUR ALL-IN-ONE AI TOOLKIT</div>
+  <h1 id="heroTitle">Create more. <span class="gradient">Imagine beyond.</span></h1>
+  <p id="heroText">Discover ready-to-use AI prompts for photos, videos, business, design and everyday creativity — all in one place.</p>
+  <div class="search"><span>⌕</span><input id="searchInput" type="search" placeholder="Search prompts, tools or categories..." /></div>
+  <div class="stats"><span><b id="toolCount">12</b>+ <span id="statTools">Prompt ideas</span></span><span>✦ <b>2</b> <span id="statLang">Languages</span></span><span>♡ <b>Free</b> <span id="statAccess">to explore</span></span></div>
+</section>
+<section id="tools">
+  <div class="section-head"><div><h2 id="browseTitle">Explore the toolkit</h2><p id="browseText">Choose a category and find your next idea.</p></div></div>
+  <div class="categories" id="categories"></div>
+  <div class="grid" id="toolGrid"></div>
+</section>
+</main>
+<footer><span>© <span id="year"></span> BK's unique fashion. <span id="footerText">Made for curious creators.</span></span><span>AI prompts • Sinhala + English</span></footer>
+</div>
+<div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal"><div class="modal-head"><h2 id="modalTitle">Prompt details</h2><button class="btn" id="closeModal">✕</button></div><div class="prompt" id="promptText"></div><button class="copy primary" id="modalCopy">Copy prompt</button></div>
+</div>
+<script>
+const data = [
+{id:1,cat:"photo",icon:"📸",title:{en:"Cinematic Portrait",si:"සිනමාත්මක Portrait"},desc:{en:"Create a premium cinematic portrait with professional lighting.",si:"Professional lighting සමඟ premium cinematic portrait එකක් නිර්මාණය කරන්න."},prompt:{en:"Create a photorealistic cinematic portrait of [SUBJECT]. Use soft directional studio lighting, natural skin texture, elegant composition, a subtle depth of field and premium editorial color grading. Keep facial features realistic and detailed.",si:"[SUBJECT] ගේ photorealistic cinematic portrait එකක් නිර්මාණය කරන්න. Soft directional studio lighting, ස්වභාවික සමේ texture, elegant composition, subtle depth of field සහ premium editorial color grading භාවිත කරන්න. මුහුණේ ලක්ෂණ යථාර්ථවාදීව තබන්න."}},
+{id:2,cat:"photo",icon:"🎨",title:{en:"Fashion Editorial",si:"Fashion Editorial"},desc:{en:"Design a luxury fashion campaign image.",si:"Luxury fashion campaign එකකට ගැළපෙන රූපයක් සාදන්න."},prompt:{en:"Create a luxury fashion editorial photograph featuring [OUTFIT] in [LOCATION]. Use a high-end magazine aesthetic, confident pose, refined styling, balanced composition and professional studio-quality lighting.",si:"[LOCATION] හි [OUTFIT] ඇඳ සිටින model කෙනෙකු සමඟ luxury fashion editorial photograph එකක් සාදන්න. High-end magazine aesthetic, confident pose, refined styling සහ professional lighting භාවිත කරන්න."}},
+{id:3,cat:"video",icon:"🎬",title:{en:"Cinematic AI Video",si:"Cinematic AI Video"},desc:{en:"Turn a still concept into a short cinematic video.",si:"නිශ්චල අදහසක් cinematic video එකක් බවට පත් කරන්න."},prompt:{en:"Create a 6-second cinematic video of [SUBJECT]. The camera slowly pushes in, natural movement, realistic lighting, subtle environmental motion, smooth transitions and consistent subject appearance. 4K cinematic quality.",si:"[SUBJECT] ඇතුළත් තත්පර 6ක cinematic video එකක් සාදන්න. Camera එක සෙමින් ඉදිරියට ගමන් කරයි. ස්වභාවික චලනයන්, realistic lighting සහ smooth transitions භාවිත කරන්න. Subject එකේ පෙනුම එකම ලෙස පවත්වාගන්න."}},
+{id:4,cat:"video",icon:"🎞️",title:{en:"Product Promo Reel",si:"Product Promo Reel"},desc:{en:"Create an engaging short product advertisement.",si:"Product එකක් සඳහා ආකර්ෂණීය කෙටි දැන්වීමක් සාදන්න."},prompt:{en:"Create a vertical 9:16 social media product advertisement for [PRODUCT]. Show beautiful close-up details, smooth camera movement, clean background, premium lighting and a strong final hero shot. Leave space for a headline and call to action.",si:"[PRODUCT] සඳහා vertical 9:16 social media advertisement එකක් සාදන්න. ලස්සන close-up details, smooth camera movement, clean background සහ premium lighting භාවිත කරන්න. අවසානයේ headline සහ call to action එකක් දැමීමට ඉඩ තබන්න."}},
+{id:5,cat:"chat",icon:"💬",title:{en:"Expert ChatGPT Assistant",si:"ChatGPT Expert Assistant"},desc:{en:"Set up ChatGPT as a specialist for any task.",si:"ඕනෑම කාර්යයකට ChatGPT විශේෂඥයෙකු ලෙස සකසන්න."},prompt:{en:"Act as an expert [ROLE]. Help me achieve [GOAL]. First understand my context, then give a clear step-by-step plan. Use practical examples, highlight common mistakes and finish with an actionable checklist. Ask questions only when essential.",si:"ඔබ [ROLE] පිළිබඳ විශේෂඥයෙකු ලෙස ක්‍රියා කරන්න. මට [GOAL] ලබාගැනීමට උදව් කරන්න. පැහැදිලි පියවරෙන් පියවර සැලැස්මක්, ප්‍රායෝගික උදාහරණ සහ වැළැක්විය යුතු වැරදි ලබා දෙන්න. අත්‍යවශ්‍ය විට පමණක් ප්‍රශ්න අසන්න."}},
+{id:6,cat:"chat",icon:"✍️",title:{en:"Social Media Caption",si:"Social Media Caption"},desc:{en:"Write catchy captions for your next post.",si:"ඔබගේ මීළඟ post එකට ආකර්ෂණීය caption එකක් ලියන්න."},prompt:{en:"Write 5 engaging social media captions for [PRODUCT / TOPIC] targeting [AUDIENCE]. Include a strong opening hook, friendly tone, clear call to action and relevant hashtags. Provide both short and medium-length options.",si:"[PRODUCT / TOPIC] සඳහා [AUDIENCE] ඉලක්ක කරගත් ආකර්ෂණීය social media captions 5ක් ලියන්න. ආරම්භක hook එකක්, මිත්‍රශීලී භාෂාවක්, call to action සහ ගැළපෙන hashtags ඇතුළත් කරන්න."}},
+{id:7,cat:"business",icon:"💡",title:{en:"Small Business Ideas",si:"කුඩා ව්‍යාපාර අදහස්"},desc:{en:"Find realistic business ideas for your budget.",si:"ඔබගේ budget එකට ගැළපෙන ව්‍යාපාර අදහස් සොයන්න."},prompt:{en:"Suggest 10 realistic small business ideas for a beginner in [LOCATION] with a starting budget of [BUDGET]. For each idea include target customers, startup needs, marketing approach, risks and first 3 steps. Avoid unrealistic income promises.",si:"[LOCATION] හි [BUDGET] ආරම්භක මුදලක් ඇති ආධුනිකයෙකුට ගැළපෙන ව්‍යාපාර අදහස් 10ක් යෝජනා කරන්න. එක් එක් අදහසට ඉලක්ක පාරිභෝගිකයන්, අවශ්‍ය දේවල්, marketing ක්‍රම, අවදානම් සහ මුල් පියවර 3 ඇතුළත් කරන්න."}},
+{id:8,cat:"business",icon:"📈",title:{en:"Business Growth Plan",si:"Business Growth Plan"},desc:{en:"Build a practical 30-day growth plan.",si:"දින 30ක ප්‍රායෝගික ව්‍යාපාර වර්ධන සැලැස්මක්."},prompt:{en:"Create a practical 30-day growth plan for my [BUSINESS TYPE]. My target customers are [AUDIENCE] and my budget is [BUDGET]. Include weekly goals, daily actions, content ideas, low-cost marketing and simple success metrics.",si:"මගේ [BUSINESS TYPE] සඳහා දින 30ක ව්‍යාපාර වර්ධන සැලැස්මක් සාදන්න. ඉලක්ක පාරිභෝගිකයන් [AUDIENCE], budget එක [BUDGET] වේ. සතිපතා ඉලක්ක, දෛනික ක්‍රියාමාර්ග, content අදහස් සහ සාර්ථකත්වය මනින ක්‍රම ඇතුළත් කරන්න."}},
+{id:9,cat:"design",icon:"🪄",title:{en:"Professional Logo Brief",si:"Professional Logo Brief"},desc:{en:"Generate a clear creative brief for a brand logo.",si:"Brand logo එකක් සඳහා නිර්මාණ brief එකක් සකසන්න."},prompt:{en:"Develop 3 professional logo concepts for [BRAND NAME], a [BUSINESS TYPE]. Brand personality: [PERSONALITY]. Preferred colors: [COLORS]. Describe the symbol, typography, layout, color use and how the logo works on light and dark backgrounds.",si:"[BUSINESS TYPE] ව්‍යාපාරයක් වන [BRAND NAME] සඳහා professional logo concepts 3ක් සකසන්න. Brand personality: [PERSONALITY]. කැමති වර්ණ: [COLORS]. Symbol, typography, layout සහ light/dark backgrounds වල භාවිතය විස්තර කරන්න."}},
+{id:10,cat:"design",icon:"🖼️",title:{en:"Poster Design Prompt",si:"Poster Design Prompt"},desc:{en:"Create a polished promotional poster concept.",si:"වෘත්තීය promotional poster අදහසක් නිර්මාණය කරන්න."},prompt:{en:"Design a modern promotional poster for [EVENT / PRODUCT]. Use a clear visual hierarchy, premium typography, balanced negative space and a cohesive color palette. Include the key message, date, offer and call to action. Format: [SIZE].",si:"[EVENT / PRODUCT] සඳහා modern promotional poster එකක් සැලසුම් කරන්න. පැහැදිලි visual hierarchy, premium typography සහ ගැළපෙන වර්ණ භාවිත කරන්න. ප්‍රධාන පණිවිඩය, දිනය, offer එක සහ call to action ඇතුළත් කරන්න. ප්‍රමාණය: [SIZE]."}},
+{id:11,cat:"flow",icon:"🌊",title:{en:"Google Flow Scene Prompt",si:"Google Flow Scene Prompt"},desc:{en:"Plan a consistent multi-shot visual scene.",si:"එකම පෙනුම පවත්වාගන්නා shots කිහිපයක් සැලසුම් කරන්න."},prompt:{en:"Create a cinematic scene sequence featuring [CHARACTER] in [SETTING]. Maintain consistent character appearance, wardrobe, lighting and environment across every shot. Shot 1: establish the location. Shot 2: medium action shot. Shot 3: expressive close-up. Use smooth continuity and realistic motion.",si:"[SETTING] තුළ [CHARACTER] ඇතුළත් cinematic scene sequence එකක් සාදන්න. සියලු shots වල character පෙනුම, ඇඳුම්, lighting සහ පරිසරය එකම ලෙස තබන්න. Shot 1: ස්ථානය පෙන්වන්න. Shot 2: මධ්‍යම action shot. Shot 3: සමීප facial shot. Smooth continuity භාවිත කරන්න."}},
+{id:12,cat:"flow",icon:"🧩",title:{en:"Creative Storyboard",si:"Creative Storyboard"},desc:{en:"Turn an idea into a visual shot list.",si:"අදහසක් visual storyboard එකක් බවට පත් කරන්න."},prompt:{en:"Turn this idea into a 5-shot storyboard: [IDEA]. For each shot provide duration, camera framing, camera movement, subject action, environment, lighting and transition. Keep the visual style consistent from beginning to end.",si:"මෙම අදහස [IDEA] shots 5ක storyboard එකක් බවට පත් කරන්න. එක් එක් shot එකට කාලය, camera framing, camera movement, subject action, පරිසරය, lighting සහ transition ලබා දෙන්න. ආරම්භයේ සිට අවසානය දක්වා එකම visual style එකක් තබන්න."}}
+];
+const cats=[{id:"all",en:"All tools",si:"සියලු Tools"},{id:"photo",en:"AI Photo",si:"AI Photo"},{id:"video",en:"AI Video",si:"AI Video"},{id:"chat",en:"ChatGPT",si:"ChatGPT"},{id:"business",en:"Business",si:"ව්‍යාපාර"},{id:"design",en:"Design",si:"Design"},{id:"flow",en:"Google Flow",si:"Google Flow"}];
+let lang="en",active="all",query="";
+const $=id=>document.getElementById(id);
+function render(){
+  const si=lang==="si";
+  $("langBtn").textContent=si?"English":"සිංහල";
+  $("eyebrow").textContent=si?"✦ ඔබේ සියලුම AI මෙවලම් එකම තැනක":"✦ YOUR ALL-IN-ONE AI TOOLKIT";
+  $("heroTitle").innerHTML=si?'වැඩිදුර නිර්මාණය කරන්න. <span class="gradient">අලුත් දේ සිතන්න.</span>':'Create more. <span class="gradient">Imagine beyond.</span>';
+  $("heroText").textContent=si?"Photo, video, business, design සහ දෛනික නිර්මාණ සඳහා සූදානම් AI prompts එකම තැනකින් සොයාගන්න.":"Discover ready-to-use AI prompts for photos, videos, business, design and everyday creativity — all in one place.";
+  $("searchInput").placeholder=si?"Prompts, tools හෝ categories සොයන්න...":"Search prompts, tools or categories...";
+  $("browseTitle").textContent=si?"ඔබට අවශ්‍ය Tool එක තෝරන්න":"Explore the toolkit";
+  $("browseText").textContent=si?"Category එකක් තෝරා ඔබගේ ඊළඟ අදහස සොයාගන්න.":"Choose a category and find your next idea.";
+  $("statTools").textContent=si?"Prompt අදහස්":"Prompt ideas";$("statLang").textContent=si?"භාෂා":"Languages";$("statAccess").textContent=si?"නොමිලේ":"to explore";
+  $("footerText").textContent=si?"නිර්මාණශීලී පුද්ගලයන් වෙනුවෙන්.":"Made for curious creators.";
+  $("categories").innerHTML=cats.map(c=>`<button class="category ${active===c.id?'active':''}" data-cat="${c.id}">${si?c.si:c.en}</button>`).join("");
+  document.querySelectorAll("[data-cat]").forEach(b=>b.onclick=()=>{active=b.dataset.cat;render()});
+  const filtered=data.filter(d=>(active==="all"||d.cat===active)&&(`${d.title.en} ${d.title.si} ${d.desc.en} ${d.desc.si} ${d.cat}`).toLowerCase().includes(query.toLowerCase()));
+  $("toolCount").textContent=filtered.length;
+  $("toolGrid").innerHTML=filtered.length?filtered.map(d=>`<article class="card"><div class="card-top"><div class="ico">${d.icon}</div><span class="tag">${d.cat.toUpperCase()}</span></div><h3>${d.title[lang]}</h3><p>${d.desc[lang]}</p><div class="card-foot"><small>${si?"Prompt එක බලන්න":"View prompt"}</small><button class="copy" data-open="${d.id}">${si?"විවෘත කරන්න":"Open prompt"} ↗</button></div></article>`).join(""):`<div class="empty">${si?"ප්‍රතිඵල හමු නොවීය. වෙනත් වචනයක් උත්සාහ කරන්න.":"No results found. Try another search."}</div>`;
+  document.querySelectorAll("[data-open]").forEach(b=>b.onclick=()=>openPrompt(Number(b.dataset.open)));
+}
+function openPrompt(id){const item=data.find(d=>d.id===id);$("modalTitle").textContent=item.title[lang];$("promptText").textContent=item.prompt[lang];$("modalCopy").textContent=lang==="si"?"Prompt එක Copy කරන්න":"Copy prompt";$("modalCopy").onclick=()=>copyText(item.prompt[lang]);$("modalBackdrop").classList.add("show")}
+async function copyText(t){try{await navigator.clipboard.writeText(t);$("modalCopy").textContent=lang==="si"?"Copy වුණා! ✓":"Copied! ✓";}catch(e){$("promptText").focus();alert(lang==="si"?"Copy කිරීමට prompt එක select කර Ctrl+C ඔබන්න.":"Select the prompt and press Ctrl+C to copy.");}}
+$("langBtn").onclick=()=>{lang=lang==="en"?"si":"en";render()};
+$("searchInput").addEventListener("input",e=>{query=e.target.value;render()});
+$("closeModal").onclick=()=>$("modalBackdrop").classList.remove("show");
+$("modalBackdrop").onclick=e=>{if(e.target===$("modalBackdrop"))$("modalBackdrop").classList.remove("show")};
+$("year").textContent=new Date().getFullYear();render();
+</script>
+</body>
+</html>
